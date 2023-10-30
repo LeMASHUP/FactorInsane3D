@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -104,7 +105,7 @@ public class BuildingSystem : MonoBehaviour
 
     public void InitializedWithObject(GameObject prefab)
     {
-        Vector3 pos = SnapCoordinateToGrid(Vector3.zero);
+        Vector3 pos = SnapCoordinateToGrid(new Vector3(0, prefab.transform.position.y, 0));
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
