@@ -26,11 +26,19 @@ public class BuildingSystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
+            if (objectToPlace != null && objectToPlace.Placed == false)
+            {
+                Destroy(objectToPlace.gameObject);
+            }
             index = 0;
             InitializedWithObject(machines[index]);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
+            if (objectToPlace != null && objectToPlace.Placed == false)
+            {
+                Destroy(objectToPlace.gameObject);
+            }
             index = 1;
             InitializedWithObject(machines[index]);
         }
