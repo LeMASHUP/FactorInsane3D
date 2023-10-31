@@ -66,6 +66,11 @@ public class BuildingSystem : MonoBehaviour
         {
             Destroy(objectToPlace.gameObject);
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            DeleteObjectUnderMouse();
+        }
     }
 
     public static Vector3 GetMouseWorldPosition() 
@@ -78,6 +83,21 @@ public class BuildingSystem : MonoBehaviour
         else
         {
             return Vector3.zero;
+        }
+    }
+
+    private void DeleteObjectUnderMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            PlaceableObject placeableObject = raycastHit.collider.GetComponent<PlaceableObject>();
+            if (placeableObject != null && placeableObject.Placed)
+            {
+                Destroy(placeableObject.gameObject);
+                Vector3Int cellPosition = gridLayout.WorldToCell(placeableObject.transform.position);
+                mainTile.SetTile(cellPosition, null);
+            }
         }
     }
 
