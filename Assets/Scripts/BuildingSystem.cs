@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
+using UnityEditor;
 
 public class BuildingSystem : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Tilemap mainTile;
     [SerializeField] private TileBase whiteTile;
     public GameObject[] machines;
+    public TMPro.TMP_Text selectionText;
     private PlaceableObject objectToPlace;
     private int index = 0;
 
@@ -24,7 +23,7 @@ public class BuildingSystem : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (objectToPlace != null && objectToPlace.Placed == false)
             {
@@ -32,8 +31,9 @@ public class BuildingSystem : MonoBehaviour
             }
             index = 0;
             InitializedWithObject(machines[index]);
+            selectionText.text = "Blocks Machine";
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (objectToPlace != null && objectToPlace.Placed == false)
             {
@@ -41,6 +41,7 @@ public class BuildingSystem : MonoBehaviour
             }
             index = 1;
             InitializedWithObject(machines[index]);
+            selectionText.text = "Conveyor";
         }
 
         if (!objectToPlace)
@@ -61,17 +62,20 @@ public class BuildingSystem : MonoBehaviour
             if (CanBePlaced(objectToPlace))
             {
                 objectToPlace.Place();
+                selectionText.text = null;
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                 TakeArea(start);
             }
 
             else
             {
+                selectionText.text = null;
                 Destroy(objectToPlace.gameObject);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            selectionText.text = null;
             Destroy(objectToPlace.gameObject);
         }
 
