@@ -563,6 +563,8 @@ MonoBehaviour:
   machines:
   - {fileID: 778496277313108524, guid: ce6ba95b965d3a24097418c247e438a7, type: 3}
   - {fileID: 7680101224990757140, guid: 624620ccd1b92824d906202262c1d6bd, type: 3}
+  - {fileID: 4149957471757423829, guid: 7e754b04634461842a8b4a0f81402e3d, type: 3}
+  - {fileID: 7350305464267669249, guid: 402012a780f7d4045a587a03a956650f, type: 3}
   selectionText: {fileID: 1883157672}
 --- !u!1 &648953556
 GameObject:

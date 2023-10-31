@@ -43,6 +43,26 @@ public class BuildingSystem : MonoBehaviour
             InitializedWithObject(machines[index]);
             selectionText.text = "Conveyor";
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (objectToPlace != null && objectToPlace.Placed == false)
+            {
+                Destroy(objectToPlace.gameObject);
+            }
+            index = 2;
+            InitializedWithObject(machines[index]);
+            selectionText.text = "Intersection";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (objectToPlace != null && objectToPlace.Placed == false)
+            {
+                Destroy(objectToPlace.gameObject);
+            }
+            index = 3;
+            InitializedWithObject(machines[index]);
+            selectionText.text = "Piston";
+        }
 
         if (!objectToPlace)
         {
