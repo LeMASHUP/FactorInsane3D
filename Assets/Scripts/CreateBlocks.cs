@@ -16,7 +16,16 @@ public class CreateBlocks : MonoBehaviour
     }
     private void CreateBlock()
     {
-        Vector3 pos = new Vector3(this.transform.position.x+1, this.transform.position.y+1, this.transform.position.z);
-        Instantiate(Block, pos, Quaternion.identity);
+        if (gameObject.transform.rotation.y == 0)
+        {
+            Vector3 pos = new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
+            Instantiate(Block, pos, Quaternion.identity);
+        }
+        else if (gameObject.transform.rotation.y == 180)
+        {
+            Vector3 pos = new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
+            Instantiate(Block, pos, Quaternion.identity);
+        }
+
     }
 }
