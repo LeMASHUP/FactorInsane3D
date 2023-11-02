@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1366625885087283889}
   - component: {fileID: -6534778604771916865}
   - component: {fileID: 8270634696223372746}
+  - component: {fileID: -8157113619507406169}
   m_Layer: 0
   m_Name: BlocksMachine
   m_TagString: Untagged
@@ -68,6 +69,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8157113619507406169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778496277313108524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0380a7ce288f945abae6619c7395f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Block: {fileID: 8441190083146108537, guid: 0dd5a810d86755f41ba104aac23a3eb0, type: 3}
 --- !u!1 &1253098066800626007
 GameObject:
   m_ObjectHideFlags: 0
