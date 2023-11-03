@@ -10,8 +10,11 @@ public class BuildingSystem : MonoBehaviour
     private Grid grid;
     [SerializeField] private Tilemap mainTile;
     [SerializeField] private TileBase whiteTile;
+    [SerializeField] private GameObject[] UI;
+    [SerializeField] private TextMachineManager textMachineManager;
+    [SerializeField] private ButtonManager buttonManager;
     public GameObject[] machines;
-    public TMPro.TMP_Text selectionText;
+    public TMP_Text selectionText;
     private PlaceableObject objectToPlace;
     private int index = 0;
 
@@ -103,6 +106,11 @@ public class BuildingSystem : MonoBehaviour
         {
             DeleteObjectUnderMouse();
         }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            ActivateHUD();
+        }
     }
 
     public static Vector3 GetMouseWorldPosition() 
@@ -129,6 +137,22 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(placeableObject.gameObject);
                 Vector3Int cellPosition = gridLayout.WorldToCell(placeableObject.transform.position);
                 mainTile.SetTile(cellPosition, null);
+            }
+        }
+    }
+
+    private void ActivateHUD()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            if (raycastHit.collider.gameObject.name == "BlocksMachine(Clone)" && raycastHit.collider.GetComponent<PlaceableObject>().Placed == true)
+            {
+                UI[0].SetActive(false);
+                UI[1].SetActive(true);
+                buttonManager = UI[1].GetComponentInChildren<ButtonManager>();
+                textMachineManager.textMachine.text = textMachineManager.machineNames[0];
+                buttonManager.machineObject = raycastHit.collider.gameObject;
             }
         }
     }

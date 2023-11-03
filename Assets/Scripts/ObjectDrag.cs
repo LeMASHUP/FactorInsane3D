@@ -17,10 +17,4 @@ public class ObjectDrag : MonoBehaviour
         Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
         transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
