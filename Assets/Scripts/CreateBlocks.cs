@@ -17,6 +17,7 @@ public class CreateBlocks : MonoBehaviour
         {
             float rotationY = gameObject.transform.rotation.eulerAngles.y;
 
+
             if (Mathf.Approximately(rotationY, 0f))
             {
                 Vector3 pos = new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
