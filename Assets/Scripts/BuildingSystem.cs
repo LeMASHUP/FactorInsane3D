@@ -12,6 +12,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private TileBase whiteTile;
     [SerializeField] private GameObject[] UI;
     [SerializeField] private TextMachineManager textMachineManager;
+    [SerializeField] private ButtonManager buttonManager;
     public GameObject[] machines;
     public TMP_Text selectionText;
     private PlaceableObject objectToPlace;
@@ -149,7 +150,9 @@ public class BuildingSystem : MonoBehaviour
             {
                 UI[0].SetActive(false);
                 UI[1].SetActive(true);
+                buttonManager = UI[1].GetComponentInChildren<ButtonManager>();
                 textMachineManager.textMachine.text = textMachineManager.machineNames[0];
+                buttonManager.machineObject = raycastHit.collider.gameObject;
             }
         }
     }

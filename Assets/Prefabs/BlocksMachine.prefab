@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0380a7ce288f945abae6619c7395f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interval: 3
+  maxBlocks: 10
   Block: {fileID: 8441190083146108537, guid: 0dd5a810d86755f41ba104aac23a3eb0, type: 3}
 --- !u!1 &1253098066800626007
 GameObject:

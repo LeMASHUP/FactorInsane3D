@@ -7,8 +7,4 @@ public class TextMachineManager : MonoBehaviour
 {
     public string[] machineNames;
     public TMP_Text textMachine;
-    void Update()
-    {
-        
-    }
 }
