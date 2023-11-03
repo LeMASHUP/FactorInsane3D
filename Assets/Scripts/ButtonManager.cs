@@ -26,7 +26,7 @@ public class ButtonManager : MonoBehaviour
     {
         normalUI.SetActive(true);
         machineUI.SetActive(false);
-        if (machineObject.name == "BlocksMachine(Clone)")
+        if (machineObject.name == "BlocksMachine(Clone)" && inputFieldBlocks.text != null && inputFieldRounds.text != null)
         {
             inputBlocks = inputFieldBlocks.text.ToString();
             outputBlocks = int.Parse(inputBlocks);
